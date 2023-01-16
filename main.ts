@@ -1,6 +1,3 @@
-function elapsed_to_text () {
-    return "" + convertToText(Math.trunc(elapsed / 60)) + ":" + _2digit_second()
-}
 function _2digit_second () {
     i = elapsed % 60
     if (i < 10) {
@@ -8,6 +5,9 @@ function _2digit_second () {
     } else {
         return convertToText(i)
     }
+}
+function elapsed_to_text () {
+    return "" + convertToText(Math.trunc(elapsed / 60)) + ":" + _2digit_second()
 }
 input.onButtonPressed(Button.B, function () {
     elapsed = 0
