@@ -1,3 +1,6 @@
+input.onButtonPressed(Button.A, function () {
+    elapsed = 0
+})
 function elapsed_to_text () {
     return "" + convertToText(Math.trunc(elapsed / 60)) + ":" + _2digit_second()
 }
@@ -17,7 +20,7 @@ loops.everyInterval(1000, function () {
     elapsed += 1
 })
 basic.forever(function () {
-    if (10 < input.lightLevel()) {
+    if (5 < input.lightLevel()) {
         if (0 == using) {
             using = 1
             elapsed = 0
