@@ -1,3 +1,6 @@
+function minutes () {
+    return convertToText(Math.trunc(elapsed / 60))
+}
 function _2digit_second () {
     i = elapsed % 60
     if (i < 10) {
@@ -7,7 +10,7 @@ function _2digit_second () {
     }
 }
 function elapsed_to_text () {
-    return "" + convertToText(Math.trunc(elapsed / 60)) + ":" + _2digit_second()
+    return "" + minutes() + ":" + _2digit_second()
 }
 input.onButtonPressed(Button.B, function () {
     elapsed = 0
@@ -24,10 +27,12 @@ basic.forever(function () {
         if (0 == using) {
             using = 1
             elapsed = 0
+            led.setBrightness(255)
         }
         basic.showString("" + (elapsed_to_text()))
     } else {
         using = 0
+        led.setBrightness(10)
         basic.showIcon(IconNames.No)
     }
 })
